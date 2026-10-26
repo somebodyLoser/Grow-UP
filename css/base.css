@@ -1,0 +1,230 @@
+/* ============ 设计变量（iOS 系统色） ============ */
+:root {
+  --blue: #007AFF;
+  --green: #34C759;
+  --red: #FF3B30;
+  --orange: #FF9500;
+  --yellow: #FFCC00;
+  --purple: #5856D6;
+  --teal: #30B0C7;
+
+  --bg: #F2F2F7;
+  --card: #FFFFFF;
+  --card-2: #FFFFFF;
+  --label: #000000;
+  --label-2: rgba(60, 60, 67, 0.60);
+  --label-3: rgba(60, 60, 67, 0.30);
+  --sep: rgba(60, 60, 67, 0.29);
+  --fill: rgba(118, 118, 128, 0.12);
+  --fill-2: rgba(118, 118, 128, 0.08);
+  --nav-bg: rgba(242, 242, 247, 0.82);
+  --sheet-bg: #F2F2F7;
+
+  --r-sm: 8px;
+  --r: 12px;
+  --r-lg: 16px;
+  --r-xl: 22px;
+
+  --tab-h: 52px;
+  --nav-h: 46px;
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --blue: #0A84FF;
+    --green: #30D158;
+    --red: #FF453A;
+    --orange: #FF9F0A;
+    --yellow: #FFD60A;
+    --purple: #5E5CE6;
+
+    --bg: #000000;
+    --card: #1C1C1E;
+    --card-2: #1C1C1E;
+    --label: #FFFFFF;
+    --label-2: rgba(235, 235, 245, 0.60);
+    --label-3: rgba(235, 235, 245, 0.30);
+    --sep: rgba(84, 84, 88, 0.65);
+    --fill: rgba(118, 118, 128, 0.24);
+    --fill-2: rgba(118, 118, 128, 0.16);
+    --nav-bg: rgba(10, 10, 10, 0.78);
+    --sheet-bg: #000000;
+  }
+}
+
+/* ============ 基础重置 ============ */
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--label);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC",
+               "Helvetica Neue", "Microsoft YaHei", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+  /* 键盘弹起时不要整页乱动 */
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: inherit;
+}
+
+input, textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  outline: none;
+  resize: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+input::placeholder, textarea::placeholder { color: var(--label-3); }
+
+h1, h2, h3, h4, p { margin: 0; font-weight: inherit; }
+
+/* ============ 应用骨架 ============ */
+#app {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#main {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.page-inner {
+  padding-top: calc(var(--safe-t) + 4px);
+  padding-bottom: calc(var(--tab-h) + var(--safe-b) + 28px);
+}
+
+/* ============ 吸顶标题 ============ */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--safe-t) + var(--nav-h));
+  padding-top: var(--safe-t);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 0.5px solid var(--sep);
+  z-index: 40;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.22s var(--ease), transform 0.28s var(--ease);
+  pointer-events: none;
+}
+
+.navbar.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar-title {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* ============ 底部 Tab Bar ============ */
+.tabbar {
+  flex: 0 0 auto;
+  height: calc(var(--tab-h) + var(--safe-b));
+  padding-bottom: var(--safe-b);
+  display: flex;
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-top: 0.5px solid var(--sep);
+  z-index: 50;
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--label-2);
+  transition: color 0.15s ease;
+}
+
+.tab svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+.tab span {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.tab.active { color: var(--blue); }
+
+.tab:active { opacity: 0.55; }
+
+/* ============ 通用工具类 ============ */
+.hidden { display: none !important; }
+.selectable { -webkit-user-select: text; user-select: text; }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.94) translateY(6px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}

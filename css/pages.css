@@ -1,0 +1,470 @@
+/* ================= 今天页 ================= */
+
+.compose-card {
+  margin: 0 16px 22px;
+  background: var(--card);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.compose-main {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 16px;
+  width: 100%;
+  text-align: left;
+}
+
+.compose-main:active { background: var(--fill-2); }
+
+.compose-pen {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 122, 255, 0.12);
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.compose-pen svg { width: 19px; height: 19px; }
+
+.compose-placeholder {
+  font-size: 17px;
+  color: var(--label-2);
+}
+
+.compose-sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--label-3);
+  margin-top: 2px;
+}
+
+.compose-divider {
+  height: 0.5px;
+  background: var(--sep);
+  margin-left: 16px;
+}
+
+.compose-sub-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  width: 100%;
+  font-size: 15.5px;
+  color: var(--label);
+  text-align: left;
+}
+
+.compose-sub-row:active { background: var(--fill-2); }
+
+.compose-sub-row .star {
+  color: var(--orange);
+  font-size: 15px;
+}
+
+.compose-sub-row .arrow {
+  margin-left: auto;
+  color: var(--label-3);
+  font-size: 17px;
+}
+
+/* 连续天数小徽章 */
+.streak {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(255, 149, 0, 0.13);
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ================= 编辑器 ================= */
+
+.editor-body {
+  padding: 0 0 calc(var(--safe-b) + 18px);
+}
+
+.editor-top {
+  padding: 12px 16px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.editor-metarow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--fill);
+  font-size: 14px;
+  color: var(--label);
+  white-space: nowrap;
+}
+
+.meta-pill:active { opacity: 0.6; }
+
+.meta-pill input[type="date"] {
+  font-size: 14px;
+  color: var(--label);
+  width: 108px;
+  padding: 0;
+  background: transparent;
+}
+
+.editor-content {
+  padding: 14px 16px 6px;
+}
+
+#editorText {
+  width: 100%;
+  min-height: 130px;
+  font-size: 17px;
+  line-height: 1.62;
+  padding: 0;
+  background: transparent;
+}
+
+.editor-block {
+  padding: 4px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.editor-block .blk-title {
+  font-size: 13px;
+  color: var(--label-2);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 1px;
+}
+
+.editor-block .blk-title .hint {
+  color: var(--label-3);
+  font-size: 12px;
+}
+
+.editor-block textarea.field,
+.editor-block input.field {
+  font-size: 16px;
+  line-height: 1.5;
+  resize: none;
+}
+
+.editor-block .field::placeholder { color: var(--label-3); }
+
+.editor-lesson .field {
+  background: rgba(0, 122, 255, 0.07);
+}
+
+.exit-hint {
+  font-size: 12px;
+  color: var(--label-3);
+  text-align: center;
+  padding: 14px 16px 0;
+  line-height: 1.6;
+}
+
+/* 标签输入区 */
+.tag-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag-input-row input {
+  flex: 1;
+  min-width: 110px;
+  font-size: 15px;
+  padding: 6px 2px;
+}
+
+/* ================= 详情弹层 ================= */
+
+.detail-scroll { padding: 0 0 calc(var(--safe-b) + 30px); }
+
+.detail-head {
+  padding: 16px 20px 10px;
+}
+
+.detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--label-2);
+  flex-wrap: wrap;
+}
+
+.detail-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.detail-text {
+  font-size: 17px;
+  line-height: 1.68;
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 6px 20px 0;
+}
+
+.detail-block {
+  margin: 18px 20px 0;
+  background: var(--card);
+  border-radius: var(--r);
+  padding: 13px 15px;
+}
+
+.detail-block .lab {
+  font-size: 12.5px;
+  color: var(--label-2);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.detail-block .val {
+  font-size: 15.5px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.detail-block.lesson {
+  background: rgba(0, 122, 255, 0.07);
+}
+
+.detail-block.lesson .val {
+  font-size: 16.5px;
+  font-weight: 500;
+}
+
+.detail-tags {
+  padding: 16px 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+/* ================= 回顾 · 日历热力图 ================= */
+
+.cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px 10px;
+}
+
+.cal-month {
+  font-size: 15.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.cal-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.cal-nav button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--fill-2);
+  display: grid;
+  place-items: center;
+  color: var(--label-2);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.cal-nav button:active { background: var(--fill); }
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-wd {
+  text-align: center;
+  font-size: 11px;
+  color: var(--label-3);
+  padding-bottom: 2px;
+}
+
+.cal-cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 12.5px;
+  color: var(--label-2);
+  background: transparent;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  transition: transform 0.12s ease;
+}
+
+.cal-cell.other { color: var(--label-3); opacity: 0.45; }
+
+.cal-cell.l0 { background: var(--fill-2); }
+
+.cal-cell.l1 { background: rgba(0, 122, 255, 0.22); color: var(--label); }
+.cal-cell.l2 { background: rgba(0, 122, 255, 0.45); color: var(--label); }
+.cal-cell.l3 { background: rgba(0, 122, 255, 0.72); color: #fff; }
+.cal-cell.l4 { background: rgba(0, 122, 255, 1); color: #fff; }
+
+.cal-cell:active { transform: scale(0.9); }
+
+.cal-cell.today {
+  outline: 1.8px solid var(--blue);
+  outline-offset: -1.8px;
+  font-weight: 600;
+  color: var(--label);
+}
+
+.cal-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 9px;
+  font-size: 11px;
+  color: var(--label-3);
+}
+
+.cal-legend i {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  display: block;
+}
+
+/* ================= 我的页 ================= */
+
+.me-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 20px 18px;
+}
+
+.me-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #4361EE, #8B5CF6);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.me-name { font-size: 21px; font-weight: 600; letter-spacing: -0.2px; }
+.me-sub { font-size: 13px; color: var(--label-2); margin-top: 2px; }
+
+/* ================= 管理列表 ================= */
+
+.mrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  position: relative;
+  min-height: 48px;
+}
+
+.mrow + .mrow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 0;
+  height: 0.5px;
+  background: var(--sep);
+}
+
+.mrow .grow { flex: 1; min-width: 0; }
+.mrow .name { font-size: 16.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mrow .sub { font-size: 12.5px; color: var(--label-2); margin-top: 1px; }
+
+.mrow .mini {
+  font-size: 13px;
+  color: var(--blue);
+  padding: 6px 4px;
+  flex: 0 0 auto;
+}
+
+.mrow .mini.danger { color: var(--red); }
+
+.emoji-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  background: var(--fill);
+  flex: 0 0 auto;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+/* 关于页 */
+.about-line {
+  font-size: 13.5px;
+  color: var(--label-2);
+  line-height: 1.75;
+  padding: 0 20px;
+}
+
+.about-line b { color: var(--label); font-weight: 500; }
+
+.about-line code {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 12.5px;
+  background: var(--fill);
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+
+/* 卡片下方的灰色说明 */
+.foot-note {
+  padding: 0 20px 4px;
+  font-size: 12px;
+  color: var(--label-3);
+  line-height: 1.7;
+}
